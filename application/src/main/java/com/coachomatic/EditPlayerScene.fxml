@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.CheckListView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coachomatic.EditPlayerController">
+   <children>
+      <Label layoutX="22.0" layoutY="78.0" text="Player Name: " />
+      <TextField fx:id="playerNameTextField" layoutX="168.0" layoutY="74.0" />
+      <Label layoutX="22.0" layoutY="117.0" text="Positions:" />
+      <Button fx:id="savePlayerButton" layoutX="524.0" layoutY="362.0" mnemonicParsing="false" onAction="#savePlayer" text="Save" />
+      <Button fx:id="returnButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToPreviousScene" text="Return" />
+      <Button fx:id="logoutButton" layoutX="518.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <CheckListView fx:id="positionsCheckListView" layoutX="168.0" layoutY="125.0" prefHeight="257.0" prefWidth="171.0" />
+   </children>
+</AnchorPane>
