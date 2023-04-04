@@ -14,7 +14,7 @@ import java.util.Iterator;
  * @since 2023-04-01
  */
 
-public class User {
+ public class User {
   private String username;
   private String password;
   private ArrayList<SoccerTeam> teams;

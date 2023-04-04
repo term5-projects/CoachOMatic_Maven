@@ -82,6 +82,8 @@ public class EditPlayerController implements Initializable{
 	private SoccerPositions[] positions = {GK, LD, RD, LM, CM, RM, ST};
 	private String[] string_positions = {"GK","LD","RD","LM","CM","RM","ST"};
 	
+	private String defaultTeamName = "";
+	
 	int min_positions = 7; //TODO - SHOULD COME FROM BE NOT FE! maybe add as an attribute of lineup generator? 
 	
 	public EditPlayerController(String team_name) {
@@ -102,7 +104,10 @@ public class EditPlayerController implements Initializable{
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//Player List View
+		//Populate player name text field
+		playerNameTextField.setText(player.getName());
+		
+		//Positions List View
 		positionsCheckListView.getItems().addAll(string_positions);
 		positionsCheckListView.getCheckModel().getCheckedItems().addListener((ListChangeListener<? super String>) new ListChangeListener<String>() {
 		     public void onChanged(ListChangeListener.Change<? extends String> c) {
@@ -123,8 +128,8 @@ public class EditPlayerController implements Initializable{
 	public void returnToPreviousScene(ActionEvent event) throws IOException
 	{		
 		//delete unsaved player if creating a player
-		if (player.getName().equals(" ")) {
-			team.removePlayer(" ");
+		if (player.getName().equals("")) {
+			team.removePlayer("");
 		}
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("EditTeamScene.fxml"));
 		loader.setControllerFactory(controllerClass -> new EditTeamController(team.getName()));
@@ -202,11 +207,11 @@ public class EditPlayerController implements Initializable{
 	*/
 	public void logout(ActionEvent event)throws IOException
 	{	
-		if (player.getName().equals(" ")) {
-			team.removePlayer(" ");
+		if (player.getName().equals("")) {
+			team.removePlayer("");
 		}
-		if (team.getName().equals("new_team")) {
-			Main.user.removeTeam("new_team");
+		if (team.getName().equals(defaultTeamName)) {
+			Main.user.removeTeam(defaultTeamName);
 		}
 		
 		
@@ -221,12 +226,4 @@ public class EditPlayerController implements Initializable{
 
 		
 	}
-
-
-
-	
-	
-	
-	
-	
 }

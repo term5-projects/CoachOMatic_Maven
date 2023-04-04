@@ -27,7 +27,7 @@ public class SoccerPlayer implements Player
      */
     public SoccerPlayer()
     {
-        this.name = " ";
+        this.name = "";
         this.id = UUID.randomUUID();
         setPositions(SoccerPositions.values());
     }

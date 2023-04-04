@@ -27,80 +27,80 @@ import javafx.stage.Stage;
 */
 public class LoginController {
 
-		@FXML Button createAccountButton;		
-		@FXML TextField usernameTextField;		
-		@FXML PasswordField passwordField;
+	@FXML Button createAccountButton;		
+	@FXML TextField usernameTextField;		
+	@FXML PasswordField passwordField;
+	
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
+
+
+	/**
+	* Brings user to UserMenuScene if user credentials are created and set
+	* 
+	* @param event
+	* @throws IOException
+	* @return void
+	*/
+	public void login(ActionEvent event) throws IOException {
 		
-		private Stage stage;
-		private Scene scene;
-		private Parent root;
-
-
-		/**
-	    * Brings user to UserMenuScene if user credentials are created and set
-	    * 
-		* @param event
-		* @throws IOException
-		* @return void
-		*/
-		public void login(ActionEvent event) throws IOException {
+		
+		String username = usernameTextField.getText();
+		String password = passwordField.getText();
+		
+		//Check if user credentials missing or no user created
+		if (username.isBlank() == true || password.isBlank() == true || Main.user == null) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Login");
+			alert.setHeaderText("Invalid User Credentials");
+			alert.setContentText("Please try again.");
 			
-			
-			String username = usernameTextField.getText();
-			String password = passwordField.getText();
-			
-			//Check if user credentials missing or no user created
-			if (username.isBlank() == true || password.isBlank() == true || Main.user == null) {
+			if (alert.showAndWait().get() == ButtonType.OK) {
+			}
+		}
+		else {
+			//Check if user credentials are correct
+			if (Main.user.getUsername().equals(username) && Main.user.getPassword().equals(password)) {
+				
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("UserMenuScene.fxml"));
+				root = loader.load();
+				
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();		
+			}
+			else {
+				
+				//Alert User of invalid credentials
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Login");
 				alert.setHeaderText("Invalid User Credentials");
 				alert.setContentText("Please try again.");
 				
 				if (alert.showAndWait().get() == ButtonType.OK) {
-				}
-			}
-			else {
-				//Check if user credentials are correct
-				if (Main.user.getUsername().equals(username) && Main.user.getPassword().equals(password)) {
-					
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("UserMenuScene.fxml"));
-					root = loader.load();
-					
-					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-					scene = new Scene(root);
-					stage.setScene(scene);
-					stage.show();		
-				}
-				else {
-					
-					//Alert User of invalid credentials
-					Alert alert = new Alert(AlertType.CONFIRMATION);
-					alert.setTitle("Login");
-					alert.setHeaderText("Invalid User Credentials");
-					alert.setContentText("Please try again.");
-					
-					if (alert.showAndWait().get() == ButtonType.OK) {
-					}					
-				}				
-			}
+				}					
+			}				
 		}
+	}
+	
+	/**
+	* Brings user to CreateAccount Scene.
+	* 
+	* @param event
+	* @throws IOException
+	* @return void
+	*/
+	public void createAccount(ActionEvent event) throws IOException {
 		
-		/**
-	    * Brings user to CreateAccount Scene.
-	    * 
-		* @param event
-		* @throws IOException
-		* @return void
-		*/
-		public void createAccount(ActionEvent event) throws IOException {
-			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateAccountScene.fxml"));
-			root = loader.load();
-					
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}
-		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateAccountScene.fxml"));
+		root = loader.load();
+				
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 }

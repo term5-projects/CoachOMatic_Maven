@@ -14,5 +14,17 @@
          </font>
       </Label>
       <Button fx:id="returnButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToPreviousScene" text="Return" />
+      <TableView fx:id="lineupTable" layoutX="26.0" layoutY="85.0" prefHeight="280.0" prefWidth="542.0">
+         <columns>
+            <TableColumn fx:id="shiftColumn" prefWidth="48.0" text="Shift" />
+            <TableColumn fx:id="gkColumn" prefWidth="62.0" text="GK" />
+            <TableColumn fx:id="ldColumn" prefWidth="61.0" text="LD" />
+            <TableColumn fx:id="rdColumn" prefWidth="65.0" text="RD" />
+            <TableColumn fx:id="lmColumn" prefWidth="48.0" text="LM" />
+            <TableColumn fx:id="cmColumn" prefWidth="59.0" text="CM" />
+            <TableColumn fx:id="rmColumn" prefWidth="79.0" text="RM" />
+            <TableColumn fx:id="stColumn" prefWidth="54.0" text="ST" />
+            <TableColumn fx:id="subColumn" prefWidth="64.0" text="Sub" />
+         </columns></TableView>
    </children>
 </AnchorPane>

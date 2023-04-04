@@ -28,7 +28,7 @@ import com.coach_o_matic_be.*;
  * @since 2023-03-31
  */
 
-public class CreateAccountController {
+ public class CreateAccountController {
 	//TODO change if Positions change
 	
 	private static final SoccerPositions GK = null;

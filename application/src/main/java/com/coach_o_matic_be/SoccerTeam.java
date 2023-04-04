@@ -17,7 +17,7 @@ import java.util.Iterator;
  * @since 2023-03-30
  */
 
-public class SoccerTeam implements Team<SoccerPlayer> {
+ public class SoccerTeam implements Team<SoccerPlayer> {
   private String name;
   private UUID id;
   private ArrayList<SoccerPlayer> playerList;
@@ -204,4 +204,5 @@ public class SoccerTeam implements Team<SoccerPlayer> {
   public int getGameShifts() {
     return this.gameShifts;
   }
-}
+
+ }
