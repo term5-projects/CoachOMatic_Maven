@@ -11,5 +11,4 @@ Maven 2.6.3
 ```
 sudo apt update
 sudo apt install maven
-
 ```
