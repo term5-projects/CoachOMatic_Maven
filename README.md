@@ -15,4 +15,5 @@ sudo apt install maven
 - Enter application directory and run:   
 ```
 mvn compiler:compile 
+mvn javafx:run
 ```
