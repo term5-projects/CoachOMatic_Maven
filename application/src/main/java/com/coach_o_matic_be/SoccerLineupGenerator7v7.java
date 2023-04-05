@@ -2,7 +2,6 @@ package com.coach_o_matic_be;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-import java.util.UUID;
 
 /**
  * <h1>SoccerLineupGenerator7v7</h1>

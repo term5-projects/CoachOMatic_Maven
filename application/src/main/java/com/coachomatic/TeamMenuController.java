@@ -30,7 +30,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 
