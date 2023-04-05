@@ -110,7 +110,7 @@ public class SoccerLineupGenerator7v7{
       
       
       
-      ArrayList<ArrayList<String>> lineup = SoccerLineupGenerator7v7.generateLineup(playerList, SoccerFormations.TWO_THREE_ONE ,6);
+      ArrayList<ArrayList<String>> lineup = SoccerLineupGenerator7v7.generateLineup(playerList, new TwoThreeOneFormation() ,6);
       
       
       for (int i = 0; i < lineup.size(); i++) {

@@ -43,7 +43,7 @@ import java.util.Iterator;
    */
   public SoccerTeam(String name) {
     ArrayList<SoccerPlayer> emptyPlayerList = new ArrayList<SoccerPlayer>();
-    setFormation(SoccerFormations.TWO_THREE_ONE);
+    setFormation(new TwoThreeOneFormation());
     setGameShifts(6);
 
     setName(name);
