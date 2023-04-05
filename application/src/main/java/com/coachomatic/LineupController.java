@@ -93,7 +93,6 @@ public class LineupController implements Initializable{
     	  cmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[5]));
     	  rmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[6]));
     	  stColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[7]));
-    	  subColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[8]));
     	  
     	  
     	 
