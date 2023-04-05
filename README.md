@@ -14,6 +14,6 @@ mvn -v
 Starting from the top-level directory, CoachOMatic_Maven:   
 ```
 cd application/
-mvn compiler:compile 
+mvn complier:compile
 mvn javafx:run
 ```
