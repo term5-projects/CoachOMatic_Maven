@@ -71,7 +71,7 @@ public class TeamMenuController implements Initializable{
 	
 	private SoccerTeam team;
 
-	int num_players_in_formation = 8; //TODO -> fix formations
+	int num_players_in_formation = 2; //TODO -> fix formations
 	
 	/**
 	 * TeamMenuConroller constructor
