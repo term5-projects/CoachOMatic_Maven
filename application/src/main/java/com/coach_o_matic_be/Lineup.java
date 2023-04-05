@@ -9,12 +9,11 @@ package com.coach_o_matic_be;
  * to undo their changes.
  * 
  *
- * @author Michael McCarthy
  * @version 1.0
  * @since 2023-03-30
  */
 
-public class Lineup {
+ public class Lineup {
   private final String title;
   private final Player[][] lineup;
 

@@ -11,8 +11,6 @@ import java.util.UUID;
 * 
 * 
 * 
-*
-* @author  Michael McCarthy
 * @version 1.0
 * @since   2023-03-30 
 */
@@ -27,7 +25,7 @@ public class SoccerPlayer implements Player
      */
     public SoccerPlayer()
     {
-        this.name = " ";
+        this.name = "";
         this.id = UUID.randomUUID();
         setPositions(SoccerPositions.values());
     }

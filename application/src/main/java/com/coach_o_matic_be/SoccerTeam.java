@@ -10,14 +10,11 @@ import java.util.Iterator;
  * Added funcitonality to manage the Team's formation.
  * 
  * 
- * 
- *
- * @author Michael McCarthy
  * @version 1.1
  * @since 2023-03-30
  */
 
-public class SoccerTeam implements Team<SoccerPlayer> {
+ public class SoccerTeam implements Team<SoccerPlayer> {
   private String name;
   private UUID id;
   private ArrayList<SoccerPlayer> playerList;
@@ -43,14 +40,13 @@ public class SoccerTeam implements Team<SoccerPlayer> {
    */
   public SoccerTeam(String name) {
     ArrayList<SoccerPlayer> emptyPlayerList = new ArrayList<SoccerPlayer>();
-    setFormation(SoccerFormations.TWO_THREE_ONE);
+    setFormation(new TwoThreeOneFormation());
     setGameShifts(6);
 
     setName(name);
     setPlayers(emptyPlayerList);
 
     this.id = UUID.randomUUID();
-    System.out.println("New Soccer Team Created with name: " + name);
   }
     /**
    * Sets Properties for SoccerTeam object
@@ -113,7 +109,6 @@ public class SoccerTeam implements Team<SoccerPlayer> {
 
   public void addPlayer(SoccerPlayer playerToAdd) {
     this.playerList.add(playerToAdd);
-    System.out.println("Added " + playerToAdd.getName() + " to " + this.getName());
   }
 
   public boolean removePlayer(String nameOfPlayerToRemove) {
@@ -160,7 +155,6 @@ public class SoccerTeam implements Team<SoccerPlayer> {
     playerToUpdate.setName(updatedName);
     playerToUpdate.setPositions(updatedPositions);
 
-    System.out.println("Updated Player: " + updatedName);
     return;
   }
 
@@ -204,4 +198,5 @@ public class SoccerTeam implements Team<SoccerPlayer> {
   public int getGameShifts() {
     return this.gameShifts;
   }
-}
+
+ }

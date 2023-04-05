@@ -30,7 +30,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 
@@ -42,9 +42,7 @@ import javafx.stage.Stage;
 * <h1>TeamMenuController</h1>
 * TeamMenuController class allows user to edit their team and
 * select available players to create lineups.
-* TODO - BE Connection for lineup generator, fix formations so min players is not hardcoded
 * 
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */
@@ -67,11 +65,11 @@ public class TeamMenuController implements Initializable{
 	
 	private ArrayList<String> stringPlayersList = new ArrayList<>();
 	
-	ArrayList<String> selectedPlayers =new ArrayList<>();
+	private ArrayList<String> selectedPlayers =new ArrayList<>();
 	
 	private SoccerTeam team;
 
-	int num_players_in_formation = 2; //TODO -> fix formations
+	int num_players_in_formation = 8;
 	
 	/**
 	 * TeamMenuConroller constructor
@@ -174,16 +172,13 @@ public class TeamMenuController implements Initializable{
 	/**
 	 * A GUI Class
 	 * Brings user to generated lineup scene
-	 * TODO - BE connection - might need to make a constuctor and pass in info
 	 * 
 	 * @param event
 	 * @throws IOException
 	 * @return void
 	 */
 	public void switchToLineupScene(ActionEvent event)throws IOException
-
 	{	
-		//TODO BE Connection - num_players_in_formation = formation.getPlayers();
 		if (selectedPlayers.size() < num_players_in_formation) {
 			//Not enough players selected to generate lineup
 			String num_players_in_formation_str = String.valueOf(num_players_in_formation);
@@ -198,9 +193,8 @@ public class TeamMenuController implements Initializable{
 		}else {
 		
 			//Load the Lineup Scene
-			System.out.println("The dynamic array is: " + selectedPlayers);			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("LineupScene.fxml"));	
-			loader.setControllerFactory(controllerClass -> new LineupController(team.getName())); //TODO BE may need to add more params into constructor
+			loader.setControllerFactory(controllerClass -> new LineupController(team.getName(), selectedPlayers)); 
 			root = loader.load();
 	
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();	
@@ -208,9 +202,7 @@ public class TeamMenuController implements Initializable{
 			stage.setScene(scene);	
 			stage.show();
 		}
-
 	}
-
 	
 	/**
 	 * A GUI Class
