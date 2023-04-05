@@ -2,31 +2,40 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="LineupScenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coachomatic.LineupController">
-   <children>
-      <Button fx:id="logoutButton" layoutX="523.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Label fx:id="formationLabel" layoutX="211.0" layoutY="19.0" prefHeight="50.0" prefWidth="178.0" text="Lineup Generation">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Button fx:id="returnButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToPreviousScene" text="Return" />
-      <TableView fx:id="lineupTable" layoutX="26.0" layoutY="85.0" prefHeight="280.0" prefWidth="542.0">
-         <columns>
-            <TableColumn fx:id="shiftColumn" prefWidth="48.0" text="Shift" />
-            <TableColumn fx:id="gkColumn" prefWidth="62.0" text="GK" />
-            <TableColumn fx:id="ldColumn" prefWidth="61.0" text="LD" />
-            <TableColumn fx:id="rdColumn" prefWidth="65.0" text="RD" />
-            <TableColumn fx:id="lmColumn" prefWidth="48.0" text="LM" />
-            <TableColumn fx:id="cmColumn" prefWidth="59.0" text="CM" />
-            <TableColumn fx:id="rmColumn" prefWidth="79.0" text="RM" />
-            <TableColumn fx:id="stColumn" prefWidth="54.0" text="ST" />
-            <TableColumn fx:id="subColumn" prefWidth="64.0" text="Sub" />
-         </columns></TableView>
-   </children>
+  <children>
+     <Button fx:id="logoutButton" layoutX="523.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+     <Label fx:id="formationLabel" layoutX="211.0" layoutY="19.0" prefHeight="50.0" prefWidth="178.0" text="Lineup Generation">
+        <font>
+           <Font size="19.0" />
+        </font>
+     </Label>
+     <Button fx:id="returnButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToPreviousScene" text="Return" />
+     <ScrollPane layoutX="8.0" layoutY="69.0" prefHeight="293.0" prefWidth="581.0">
+       <content>
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="675.0" prefWidth="564.0">
+              <children>
+                 <TableView fx:id="lineupTable" prefHeight="568.0" prefWidth="569.0">
+                    <columns>
+                       <TableColumn fx:id="shiftColumn" prefWidth="41.0" text="Shift" />
+                       <TableColumn fx:id="gkColumn" prefWidth="76.0" text="GK" />
+                       <TableColumn fx:id="ldColumn" prefWidth="74.0" text="LD" />
+                       <TableColumn fx:id="rdColumn" prefWidth="73.0" text="RD" />
+                       <TableColumn fx:id="lmColumn" prefWidth="76.0" text="LM" />
+                       <TableColumn fx:id="cmColumn" prefWidth="77.0" text="CM" />
+                       <TableColumn fx:id="rmColumn" prefWidth="76.0" text="RM" />
+                       <TableColumn fx:id="stColumn" prefWidth="71.0" text="ST" />
+                    </columns>
+                 </TableView>
+              </children>
+           </AnchorPane>
+       </content>
+     </ScrollPane>
+  </children>
 </AnchorPane>

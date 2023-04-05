@@ -69,7 +69,7 @@ public class TeamMenuController implements Initializable{
 	
 	private SoccerTeam team;
 
-	int num_players_in_formation = 8;
+	int num_players_in_formation = 7;
 	
 	/**
 	 * TeamMenuConroller constructor
