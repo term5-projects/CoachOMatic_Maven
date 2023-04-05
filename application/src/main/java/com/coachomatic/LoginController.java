@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 * LoginController class prompts user for username and password and upon login, brings them to the user menu.
 * User can also create a new account. 
 * 
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */

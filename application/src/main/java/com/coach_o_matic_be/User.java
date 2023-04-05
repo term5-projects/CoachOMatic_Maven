@@ -9,7 +9,6 @@ import java.util.Iterator;
  * as well as provides funcitonality to work with teams and generate lineups
  * 
  *
- * @author Michael McCarthy
  * @version 1.1
  * @since 2023-04-01
  */
@@ -29,7 +28,6 @@ import java.util.Iterator;
     this.username = username;
     this.password = password;
     teams = new ArrayList<SoccerTeam>();
-    System.out.println("New user created with username: " + username + " and password: " + password);
   }
 
   /**
@@ -92,7 +90,6 @@ import java.util.Iterator;
   
   public void addTeam(SoccerTeam teamToAdd) {
     teams.add(teamToAdd);
-    System.out.println("New team added: " + teamToAdd.getName());
   }
 
   /**
@@ -156,7 +153,6 @@ import java.util.Iterator;
     teamToUpdate.setName(updatedTeamName);
     teamToUpdate.setFormation(updatedTeamFormation);
     teamToUpdate.setGameShifts(updatedGameShifts);
-    System.out.println("Updated team: " + teamToUpdate.getName());
 
     return;
     

@@ -10,7 +10,6 @@ package com.coach_o_matic_be;
 * 
 * 
 *
-* @author  Michael McCarthy
 * @version 1.0
 * @since   2023-04-04
 */

@@ -10,9 +10,6 @@ import java.util.Iterator;
  * Added funcitonality to manage the Team's formation.
  * 
  * 
- * 
- *
- * @author Michael McCarthy
  * @version 1.1
  * @since 2023-03-30
  */
@@ -50,7 +47,6 @@ import java.util.Iterator;
     setPlayers(emptyPlayerList);
 
     this.id = UUID.randomUUID();
-    System.out.println("New Soccer Team Created with name: " + name);
   }
     /**
    * Sets Properties for SoccerTeam object
@@ -113,7 +109,6 @@ import java.util.Iterator;
 
   public void addPlayer(SoccerPlayer playerToAdd) {
     this.playerList.add(playerToAdd);
-    System.out.println("Added " + playerToAdd.getName() + " to " + this.getName());
   }
 
   public boolean removePlayer(String nameOfPlayerToRemove) {
@@ -160,7 +155,6 @@ import java.util.Iterator;
     playerToUpdate.setName(updatedName);
     playerToUpdate.setPositions(updatedPositions);
 
-    System.out.println("Updated Player: " + updatedName);
     return;
   }
 

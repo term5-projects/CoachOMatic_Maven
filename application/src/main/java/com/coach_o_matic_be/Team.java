@@ -13,7 +13,6 @@ import java.util.ArrayList;
 * <br></br>
 * Example: In SoccerTeam.java PlayerType is set to SoccerPlayer.
 * 
-* @author Michael McCarthy
 * @version 1.1
 * @since 2023-03-30
 */

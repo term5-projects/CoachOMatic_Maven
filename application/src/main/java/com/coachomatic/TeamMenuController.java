@@ -42,9 +42,7 @@ import javafx.stage.Stage;
 * <h1>TeamMenuController</h1>
 * TeamMenuController class allows user to edit their team and
 * select available players to create lineups.
-* TODO - BE Connection for lineup generator, fix formations so min players is not hardcoded
 * 
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */
@@ -174,7 +172,6 @@ public class TeamMenuController implements Initializable{
 	/**
 	 * A GUI Class
 	 * Brings user to generated lineup scene
-	 * TODO - BE connection - might need to make a constuctor and pass in info
 	 * 
 	 * @param event
 	 * @throws IOException
@@ -182,7 +179,6 @@ public class TeamMenuController implements Initializable{
 	 */
 	public void switchToLineupScene(ActionEvent event)throws IOException
 	{	
-		//TODO BE Connection - num_players_in_formation = formation.getPlayers();
 		if (selectedPlayers.size() < num_players_in_formation) {
 			//Not enough players selected to generate lineup
 			String num_players_in_formation_str = String.valueOf(num_players_in_formation);
@@ -197,9 +193,8 @@ public class TeamMenuController implements Initializable{
 		}else {
 		
 			//Load the Lineup Scene
-			System.out.println("The dynamic array is: " + selectedPlayers);			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("LineupScene.fxml"));	
-			loader.setControllerFactory(controllerClass -> new LineupController(team.getName(), selectedPlayers)); //TODO BE may need to add more params into constructor
+			loader.setControllerFactory(controllerClass -> new LineupController(team.getName(), selectedPlayers)); 
 			root = loader.load();
 	
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();	

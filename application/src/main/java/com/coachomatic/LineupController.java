@@ -28,9 +28,6 @@ import javafx.stage.Stage;
 /**
 * <h1>LineupController</h1>
 * LineupController class is used to display generated lineups to the user.
-* TODO - BE Connection.
-*
-* @author  Grace Pearcey, David Davilla
 * @version 1.0
 * @since   2023-03-29 
 */
@@ -53,7 +50,6 @@ public class LineupController implements Initializable{
 
 	/**
 	 * LineupController constructor
-	 * TODO - may need to update for BE connection
 	 * 
 	 * @param team_name
 	 */
@@ -109,12 +105,9 @@ public class LineupController implements Initializable{
     	  
     	  for (int i =0; i < lineupgenerationoutput.size(); i++) {
         	  String str = String.join(",", lineupgenerationoutput.get(i));
-        	  System.out.println(str);
         	  lineuprows.add(str);
     	  }
     	  lineupTable.getItems().addAll(lineuprows);
-    	  System.out.println(lineuprows);
-    	  System.out.println(selectedPlayers);
     	  team.getPlayers();  
     }      
     

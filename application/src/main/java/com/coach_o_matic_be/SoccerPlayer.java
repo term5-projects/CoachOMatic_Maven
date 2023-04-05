@@ -11,8 +11,6 @@ import java.util.UUID;
 * 
 * 
 * 
-*
-* @author  Michael McCarthy
 * @version 1.0
 * @since   2023-03-30 
 */

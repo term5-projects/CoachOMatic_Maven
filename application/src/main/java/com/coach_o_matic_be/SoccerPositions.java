@@ -4,9 +4,6 @@ package com.coach_o_matic_be;
 * Provides enum of soccer positions.
 * 
 * 
-* 
-*
-* @author  Michael McCarthy
 * @version 1.0
 * @since   2023-03-29 
 */

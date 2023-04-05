@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 * Main class is the top level class for the Coach-O-Matic GUI.
 * Starts at the login scene  
 *
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */

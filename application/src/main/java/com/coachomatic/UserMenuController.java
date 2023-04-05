@@ -31,7 +31,6 @@ import com.coach_o_matic_be.*;
 * <h1>UserMenuController</h1>
 * UserMenuController class allows user to create a new team or select an existing.
 * 
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */
@@ -84,7 +83,6 @@ public class UserMenuController implements Initializable{
 		
 		//initialze Team ChoiceBox
 		teamsListString = getStringTeamList(Main.user.getTeams());
-		System.out.println(teamsListString + " teams user has");
 		selectTeamChoiceBox.getItems().addAll(teamsListString);
 	}
 	

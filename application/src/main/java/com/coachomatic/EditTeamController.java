@@ -32,9 +32,7 @@ import com.coach_o_matic_be.*;
 * <h1>EditTeamController</h1>
 * EditTeamController class is used to edit or create a new team.
 * Prompts user for Team name, number of shifts per game, formation, and players on the team.  
-* TODO - fix formations
 *
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */
@@ -72,19 +70,17 @@ public class EditTeamController implements Initializable{
 	
 	private String defaultTeamName = "";
 	
-	private String[] formations = {"2-3-1"}; //TODO - fix formations
+	private String[] formations = {"2-3-1"}; 
 	private String selectedPlayer;
 
 
 	public EditTeamController() {
 		team = new SoccerTeam(defaultTeamName); 
 		Main.user.addTeam(team);
-		System.out.println("EditTeamController() called");		
 		
 	}
 	public EditTeamController(String team_name) {
 		team = Main.user.getTeam(team_name);
-		System.out.println("EditTeamController(String team_name) called");
 	}
 	
 	/**
@@ -103,37 +99,26 @@ public class EditTeamController implements Initializable{
 
 	/**
 	 * Returns a string array of all soccer formations that can a coach can select
-	 * TODO - fix formations
 	 * 
 	 * @param ArrayList<Formation>
 	 * @return ArrayList<String>
-	 */
-//	public ArrayList<String> getStringFormationList(ArrayList<Formation> formationList){
-//		ArrayList<String> stringFormationList = new ArrayList<>();
-//		for(Formation f:formationList) {
-//			stringFormationList.add(f.getFormationName());
-//		}
-//		return stringPlayerList;
-//	}
-	
+	 */	
 	
 
 	/**
 	 * A GUI Class
 	 * Initializes ChoiceBox, Spinner, and ListView
-	 * TODO fix formations
 	 * 
 	 * @return void
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.print("EditTeamController initialize() called");
 		
 		//Fill Text Field
 		teamNameTextField.setText(team.getName());
 		
 		//formation ChoiceBox
-		formationChoiceBox.getItems().addAll(formations); //TODO fix formations
+		formationChoiceBox.getItems().addAll(formations); 
 
 		
 		//shifts Spinner 
@@ -145,7 +130,7 @@ public class EditTeamController implements Initializable{
 		//Player List View		
 		stringPlayersList = getStringPlayerList(team.getPlayers());
 		playerListView.getItems().addAll(stringPlayersList);
-		playerListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {//TODO -> <Player>
+		playerListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
@@ -244,7 +229,6 @@ public class EditTeamController implements Initializable{
 			stringPlayersList = getStringPlayerList(team.getPlayers()); //get updated player list
 			playerListView.getItems().clear(); // clear the ListView
 		    playerListView.getItems().addAll(stringPlayersList); // add updated stringPlayersList to the ListView
-			System.out.println("players after " + selectedPlayer +  " removed: " + stringPlayersList);
 			
 			if (player_deleted == false) {
 				System.out.println("Error: " + selectedPlayer + " could not be deleted.");
@@ -276,7 +260,6 @@ public class EditTeamController implements Initializable{
 	/**
 	 * A GUI Class
 	 * Saves team name, formation, and shifts, and exits to the TeamMenu of team edited or created
-	 * TODO - add a check for formation
 	 * 
 	 * @param event
 	 * @return void
@@ -285,10 +268,9 @@ public class EditTeamController implements Initializable{
 	public void saveTeam(ActionEvent event) throws IOException {
 
 		boolean teamEmpty = teamNameTextField.getText().isBlank();
-		String formation = formationChoiceBox.getValue();
 		
 		//Display alert if no team name or formation selected
-		if (teamEmpty == true) {//TODO add check for formation
+		if (teamEmpty == true) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Team Settings");
 			alert.setHeaderText("Missing Team Information");

@@ -9,7 +9,6 @@ import java.util.Random;
  * a list of players, number of shifts, and formation.
  * 
  *
- * @author Michael McCarthy, David Davila
  * @version 1.0
  * @since 2023-03-30
  */
@@ -43,7 +42,6 @@ public class SoccerLineupGenerator7v7{
 			    str = str.replace(" ", ""); // remove the space
 			    PlayerNames.set(i2, str); // update the element in the list
 			}
-	    	 System.out.println(PlayerNames);
 	    	 lineuprows.add(PlayerNames);  
 	  }		   
     return lineuprows;

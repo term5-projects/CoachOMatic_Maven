@@ -23,13 +23,12 @@ import com.coach_o_matic_be.*;
  * Creates new user accounts.
  * User must input a username and password to create the account.
  *
- * @author Grace Pearcey
  * @version 1.0
  * @since 2023-03-31
  */
 
  public class CreateAccountController {
-	//TODO change if Positions change
+	
 	
 	private static final SoccerPositions GK = null;
 	private static final SoccerPositions LD = null;

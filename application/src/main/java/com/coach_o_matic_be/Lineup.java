@@ -9,7 +9,6 @@ package com.coach_o_matic_be;
  * to undo their changes.
  * 
  *
- * @author Michael McCarthy
  * @version 1.0
  * @since 2023-03-30
  */

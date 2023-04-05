@@ -31,9 +31,7 @@ import com.coach_o_matic_be.*;
 /**
 * <h1>EditPlayerController</h1>
 * EditPlayerController class is used to edit player name and positions.
-* TODO - fix positions - right now it's just a hardcoded string for displaying and gui has no effect on actual player posistions
 *
-* @author  Grace Pearcey
 * @version 1.0
 * @since   2023-03-29 
 */
@@ -80,7 +78,7 @@ public class EditPlayerController implements Initializable{
 	
 	private String defaultTeamName = "";
 	
-	int min_positions = 7; //TODO - SHOULD COME FROM BE NOT FE! maybe add as an attribute of lineup generator? 
+	int min_positions = 7; 
 	
 	public EditPlayerController(String team_name) {
 		this.team = Main.user.getTeam(team_name);
@@ -142,7 +140,6 @@ public class EditPlayerController implements Initializable{
 	/**
 	 * A GUI Class
 	 * Saves Player name and position updates
-	 * TODO - actually set positions from CheckListView
 	 * 
 	 * @return void
 	 */
@@ -173,7 +170,7 @@ public class EditPlayerController implements Initializable{
 		}
 		else {
 			//Update player
-			team.updatePlayer(player, playerNameTextField.getText(), positions);//TODO fix positinos
+			team.updatePlayer(player, playerNameTextField.getText(), positions);
 			
 			//Exit to EditTeamScene
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("EditTeamScene.fxml"));
@@ -195,7 +192,6 @@ public class EditPlayerController implements Initializable{
 	* A GUI Class
 	* Logs out user, brings user to LoginScene. Doesn't save anything. 
 	* Deletes temporary team and temporary player if they exist.
-	* OPTIONAL TODO - give user a warning if they haven't saved the team as it will be removed if not saved
 	* 
 	* @param event
 	* @throws IOException
