@@ -17,7 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -49,6 +49,8 @@ public class LineupController implements Initializable{
 	private SoccerTeam team;
 	
 	private ArrayList<String> selectedPlayers =new ArrayList<>();
+
+	private int players_in_formation = 7;
 
 	/**
 	 * LineupController constructor
@@ -85,38 +87,71 @@ public class LineupController implements Initializable{
 
 
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    // @Override
+    // public void initialize(URL url, ResourceBundle rb) {
    
-    	  shiftColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[0]));
-    	  gkColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[1]));
-    	  ldColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[2]));
-    	  rdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[3]));
-    	  lmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[4]));
-    	  cmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[5]));
-    	  rmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[6]));
-    	  stColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[7]));
-    	  subColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[8]));
-    	  
-    	  
-    	 
-    	  
-    	  ArrayList<String> lineuprows = new ArrayList<>();
-    	  
-    	  
-    	  ArrayList<ArrayList<String>> lineupgenerationoutput = SoccerLineupGenerator7v7.generateLineup(selectedPlayers, team.getFormation() ,team.getGameShifts());
-    	  
-    	  for (int i =0; i < lineupgenerationoutput.size(); i++) {
-        	  String str = String.join(",", lineupgenerationoutput.get(i));
-        	  System.out.println(str);
-        	  lineuprows.add(str);
-    	  }
-    	  lineupTable.getItems().addAll(lineuprows);
-    	  System.out.println(lineuprows);
-    	  System.out.println(selectedPlayers);
-    	  team.getPlayers();  
-    }      
+    // 	shiftColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[0]));
+    // 	gkColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[1]));
+    // 	ldColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[2]));
+    // 	rdColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[3]));
+    // 	lmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[4]));
+    // 	cmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[5]));
+    // 	rmColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[6]));
+    // 	stColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[7]));
+		
+		
+	// 	for (int index = players_in_formation; index < selectedPlayers.size(); index = index + 1 ){
+	// 		subColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[index]));
+	// 	}
+    	
+    	
+    // 	ArrayList<String> lineuprows = new ArrayList<>();
+    	
+    	
+    // 	ArrayList<ArrayList<String>> lineupgenerationoutput = SoccerLineupGenerator7v7.generateLineup(selectedPlayers, team.getFormation() ,team.getGameShifts());
+    	
+    // 	for (int i =0; i < lineupgenerationoutput.size(); i++) {
+    // 	  String str = String.join(",", lineupgenerationoutput.get(i));
+    // 	  System.out.println(str);
+    // 	  lineuprows.add(str);
+    // 	}
+    // 	lineupTable.getItems().addAll(lineuprows);
+    // 	System.out.println(lineuprows);
+    // 	System.out.println(selectedPlayers);
+    // 	team.getPlayers();  
+    // }      
     
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		shiftColumn.setCellValueFactory(new PropertyValueFactory<>("shigdfgdfgfsft"));
+		gkColumn.setCellValueFactory(new PropertyValueFactory<>("gk"));
+		ldColumn.setCellValueFactory(new PropertyValueFactory<>("ld"));
+		rdColumn.setCellValueFactory(new PropertyValueFactory<>("rd"));
+		lmColumn.setCellValueFactory(new PropertyValueFactory<>("lm"));
+		cmColumn.setCellValueFactory(new PropertyValueFactory<>("cm"));
+		rmColumn.setCellValueFactory(new PropertyValueFactory<>("rm"));
+		stColumn.setCellValueFactory(new PropertyValueFactory<>("st"));
+		subColumn.setCellValueFactory(new PropertyValueFactory<>("sub"));
+
+    	
+    	
+    	ArrayList<String> lineuprows = new ArrayList<>();
+    	
+    	
+    	ArrayList<ArrayList<String>> lineupgenerationoutput = SoccerLineupGenerator7v7.generateLineup(selectedPlayers, team.getFormation() ,team.getGameShifts());
+    	
+    	for (int i =0; i < lineupgenerationoutput.size(); i++) {
+			for (int j =0; j < lineupgenerationoutput.get(i).size(); j++) {
+    	  		String str = String.join(",", lineupgenerationoutput.get(i).get(j));
+    	  	System.out.println(str);
+    	  	lineuprows.add(str);
+			}
+    	}
+    	lineupTable.getItems().addAll(lineuprows);
+    	System.out.println(lineuprows);
+    	System.out.println(selectedPlayers);
+    	team.getPlayers();  
+	}
     
       
 
