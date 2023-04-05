@@ -67,11 +67,11 @@ public class TeamMenuController implements Initializable{
 	
 	private ArrayList<String> stringPlayersList = new ArrayList<>();
 	
-	ArrayList<String> selectedPlayers =new ArrayList<>();
+	private ArrayList<String> selectedPlayers =new ArrayList<>();
 	
 	private SoccerTeam team;
 
-	int num_players_in_formation = 2; //TODO -> fix formations
+	int num_players_in_formation = 8;
 	
 	/**
 	 * TeamMenuConroller constructor
@@ -181,7 +181,6 @@ public class TeamMenuController implements Initializable{
 	 * @return void
 	 */
 	public void switchToLineupScene(ActionEvent event)throws IOException
-
 	{	
 		//TODO BE Connection - num_players_in_formation = formation.getPlayers();
 		if (selectedPlayers.size() < num_players_in_formation) {
@@ -200,7 +199,7 @@ public class TeamMenuController implements Initializable{
 			//Load the Lineup Scene
 			System.out.println("The dynamic array is: " + selectedPlayers);			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("LineupScene.fxml"));	
-			loader.setControllerFactory(controllerClass -> new LineupController(team.getName())); //TODO BE may need to add more params into constructor
+			loader.setControllerFactory(controllerClass -> new LineupController(team.getName(), selectedPlayers)); //TODO BE may need to add more params into constructor
 			root = loader.load();
 	
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();	
@@ -208,9 +207,7 @@ public class TeamMenuController implements Initializable{
 			stage.setScene(scene);	
 			stage.show();
 		}
-
 	}
-
 	
 	/**
 	 * A GUI Class
