@@ -7,8 +7,6 @@ import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -69,8 +67,6 @@ public class EditTeamController implements Initializable{
 	@FXML private AnchorPane editTeamPane;
 
 	private ArrayList<String> stringPlayersList = new ArrayList<>();
-
-	private String playerName;
 	
 	public SoccerTeam team;
 	
@@ -194,12 +190,9 @@ public class EditTeamController implements Initializable{
 	 * @throws IOException 
 	 */
 	public void editPlayer(ActionEvent event) throws IOException
-	{		
-		playerName = playerListView.getSelectionModel().getSelectedItem();
-		
-		
+	{			
 		//Display alert if no player selected
-		if (playerName == null) {
+		if (selectedPlayer == null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Select Player");
 			alert.setHeaderText("No Player Selected");
@@ -211,7 +204,7 @@ public class EditTeamController implements Initializable{
 			
 			//load EditPlayerScene
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPlayerScene.fxml"));
-			loader.setControllerFactory(controllerClass -> new EditPlayerController(team.getName(), playerName));
+			loader.setControllerFactory(controllerClass -> new EditPlayerController(team.getName(), selectedPlayer));
 			root = loader.load();
 					
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -234,10 +227,10 @@ public class EditTeamController implements Initializable{
 	 * @return void
 	 */
 	public void deletePlayer(ActionEvent event) {
-		playerName = playerListView.getSelectionModel().getSelectedItem();
+		selectedPlayer = playerListView.getSelectionModel().getSelectedItem();
 		
 		//Display alert if no player selected
-		if (playerName == null) {
+		if (selectedPlayer == null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Select Player");
 			alert.setHeaderText("No Player Selected");
@@ -247,14 +240,14 @@ public class EditTeamController implements Initializable{
 			}
 		}else{
 			//Delete Player		
-			boolean player_deleted = team.removePlayer(playerName);
+			boolean player_deleted = team.removePlayer(selectedPlayer);
 			stringPlayersList = getStringPlayerList(team.getPlayers()); //get updated player list
 			playerListView.getItems().clear(); // clear the ListView
 		    playerListView.getItems().addAll(stringPlayersList); // add updated stringPlayersList to the ListView
-			System.out.println("players after " + playerName +  " removed: " + stringPlayersList);
+			System.out.println("players after " + selectedPlayer +  " removed: " + stringPlayersList);
 			
 			if (player_deleted == false) {
-				System.out.println("Error: " + playerName + " could not be deleted.");
+				System.out.println("Error: " + selectedPlayer + " could not be deleted.");
 			}
 			
 		}
