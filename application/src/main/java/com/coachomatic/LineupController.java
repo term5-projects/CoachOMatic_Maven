@@ -48,14 +48,17 @@ public class LineupController implements Initializable{
 	
 	private SoccerTeam team;
 	
+	private ArrayList<String> selectedPlayers =new ArrayList<>();
+
 	/**
 	 * LineupController constructor
 	 * TODO - may need to update for BE connection
 	 * 
 	 * @param team_name
 	 */
-	public LineupController(String team_name) {
+	public LineupController(String team_name, ArrayList<String> selectedPlayers_user) {
 		team = Main.user.getTeam(team_name);
+		selectedPlayers = selectedPlayers_user;
 	}
 	
 
@@ -96,14 +99,25 @@ public class LineupController implements Initializable{
     	  subColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().split(",")[8]));
     	  
     	  
+    	 
+    	  
     	  ArrayList<String> lineuprows = new ArrayList<>();
-    	  lineuprows.add("1,John,Doe,Smith,Jane,Doe,Smith,Roe,Sub1");
-    	  lineuprows.add("2,Jane,Doe,Smith,John,Doe,Smith,Roe,Sub2");
-    	  lineuprows.add("3,Smith,Doe,Smith,Doe,Doe,Smith,Roe,Sub3");
+    	  
+    	  
+    	  ArrayList<ArrayList<String>> lineupgenerationoutput = SoccerLineupGenerator7v7.generateLineup(selectedPlayers, team.getFormation() ,team.getGameShifts());
+    	  
+    	  for (int i =0; i < lineupgenerationoutput.size(); i++) {
+        	  String str = String.join(",", lineupgenerationoutput.get(i));
+        	  System.out.println(str);
+        	  lineuprows.add(str);
+    	  }
     	  lineupTable.getItems().addAll(lineuprows);
     	  System.out.println(lineuprows);
-    	  
+    	  System.out.println(selectedPlayers);
+    	  team.getPlayers();  
     }      
+    
+    
       
 
 	/**
